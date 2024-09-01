@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         SSH_USER = 'root'
-        SSH_HOST = credentials(jano_server_ip)
+        SSH_HOST = credentials('jano_server_ip')
     }
 
     stages {
