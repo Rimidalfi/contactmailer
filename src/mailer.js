@@ -3,12 +3,12 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const {EMAIL_HOST,EMAIL_PORT,EMAIL_SEC,EMAIL,EMAIL_PW,FROM,TO,SUBJECT} = process.env
+const {EMAIL_HOST,EMAIL_PORT,EMAIL,EMAIL_PW,FROM,TO,SUBJECT} = process.env
 
 const transporter = nodemailer.createTransport({
     host: EMAIL_HOST,
     port: EMAIL_PORT,
-    secure: EMAIL_SEC, 
+    secure: true, 
     auth: {
         user: EMAIL,
         pass: EMAIL_PW,

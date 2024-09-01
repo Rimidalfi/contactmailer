@@ -4,6 +4,9 @@ import InquiryMail from "./mailer.js";
 
 
 const PORT = process.env.PORT || 3001;
+const corsOptions = {
+    origin: "http://portfolio:3000"
+}
 const app = express();
 
 
@@ -21,9 +24,9 @@ async function forwardMail(req,res){
 }
 
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.post('/',forwardMail)
 app.get('/',(req,res)=>res.send("<h1 style='text-align: center;'>Contact NodeMailer online 🚀</h1>"))
-app.listen(PORT,()=>console.log(`Server runs on Port: http://localhost:${PORT}`));
+app.listen(PORT,()=>console.log(`Server runs on Port: ${PORT}`));
