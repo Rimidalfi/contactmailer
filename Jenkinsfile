@@ -11,11 +11,12 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} <<EOF
-                    echo "Connected to ${SSH_HOST} as ${SSH_USER}"
-                    hostname
+                    ssh -o StrictHostKeyChecking=no ${SSH_USER}@${SSH_HOST} << EOF
+                    echo "Connected to Jano CLoud as ${SSH_USER}"
+                    cd 
                     date
                     ls 
+                    echo "script successful completed"
                     EOF
                     '''
                 }
