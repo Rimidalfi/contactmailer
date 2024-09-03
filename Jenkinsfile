@@ -5,7 +5,7 @@ pipeline {
         SSH_USER = 'root'
         SSH_HOST = credentials('jano_server_ip')
         REPO_PATH = '/root/apps/contactmailer'
-        REPO_URL = 'git@github.com:Rimidalfi/contactmailer.git'
+        REPO_URL = 'https://github.com/Rimidalfi/contactmailer.git'
     }
     stages {
         stage('Connect and Execute') {
