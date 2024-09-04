@@ -3,9 +3,10 @@ import cors from 'cors';
 import InquiryMail from "./mailer.js";
 
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
+const ORIGIN = process.env.ORIGIN 
 const corsOptions = {
-    origin: "http://portfolio:3000"
+    origin: ORIGIN
 }
 const app = express();
 
