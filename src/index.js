@@ -25,7 +25,8 @@ async function forwardMail(req,res){
 }
 
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors();
 app.use(express.json());
 
 app.post('/',forwardMail)

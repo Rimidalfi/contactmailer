@@ -5,7 +5,6 @@ if [ ! -d ${REPO_PATH} ]; then
     echo "mkdir at ${REPO_PATH}"
     mkdir -p ${REPO_PATH}
 fi
-
 if [ ! -d "${REPO_PATH}/.git" ]; then
     git clone ${REPO_URL} ${REPO_PATH}
     echo "cloning repository from:${REPO_URL}"
@@ -25,6 +24,4 @@ else
     -e ORIGIN="https://wladimir.janowitsch.com" \
     contactmailer
 fi
-
-
 EOF
