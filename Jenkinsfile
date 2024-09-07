@@ -6,6 +6,9 @@ pipeline {
         SSH_HOST = credentials('jano_server_ip')
         REPO_PATH = '/root/apps/contactmailer'
         REPO_URL = 'https://github.com/Rimidalfi/contactmailer.git'
+        CONTAINER = 'jano-mailer'
+        IMAGE = 'contactmailer'
+        PORT = '8081'
     }
 
     stages {
@@ -29,9 +32,14 @@ else
     cd ${REPO_PATH}
     git pull origin main
     echo "pulling repository from:${REPO_URL}"
-    docker build -t contactmailer:${BUILD_NUMBER} -t contactmailer .
-    echo "DOCKER IMAGE BUILD ✅"
-    docker run -d -p 8081:8080 \
+    docker stop ${CONTAINER}
+    echo "DOCKER CONTAINER >${CONTAINER}< STOPPED 🚫"
+    docker system prune -a
+    echo "DOCKER SYSTEM PRUNED 🧹"
+    docker build -t ${IMAGE}:${BUILD_NUMBER} -t ${IMAGE} .
+    echo "DOCKER IMAGE >${IMAGE}< BUILD ✅"
+    docker run -d -p ${PORT}:8080 \
+    --name ${CONTAINER} \
     -e EMAIL_HOST=${EMAIL_HOST_VAR} \
     -e EMAIL_PORT="465" \
     -e EMAIL_PW=${EMAIL_PW_VAR} \
@@ -40,8 +48,8 @@ else
     -e TO="w.janowitsch@gmail.com" \
     -e SUBJECT="new Message from Contact form ✔" \
     -e ORIGIN="https://wladimir.janowitsch.com" \
-    contactmailer
-    echo "DOCKER CONTAINER STARTED ✅"
+    ${IMAGE}
+    echo "DOCKER CONTAINER >${CONTAINER}< STARTED ✅"
 fi
 EOF
 '''
