@@ -13,6 +13,7 @@ else
     git pull origin main
     echo "pulling repository from:${REPO_URL}"
     docker build -t contactmailer:${BUILD_NUMBER} -t contactmailer .
+    echo "DOCKER IMAGE BUILD ✅"
     docker run -d -p 8081:8080 \
     -e EMAIL_HOST=${EMAIL_HOST_VAR} \
     -e EMAIL_PORT="465" \
@@ -23,5 +24,6 @@ else
     -e SUBJECT="new Message from Contact form ✔" \
     -e ORIGIN="https://wladimir.janowitsch.com" \
     contactmailer
+    echo "DOCKER CONTAINER STARTED ✅"
 fi
 EOF
