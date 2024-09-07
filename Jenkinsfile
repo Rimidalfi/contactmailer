@@ -34,7 +34,7 @@ else
     echo "pulling repository from:${REPO_URL}"
     docker stop ${CONTAINER}
     echo "DOCKER CONTAINER >${CONTAINER}< STOPPED 🚫"
-    docker system prune -a
+    docker system prune -a -y
     echo "DOCKER SYSTEM PRUNED 🧹"
     docker build -t ${IMAGE}:${BUILD_NUMBER} -t ${IMAGE} .
     echo "DOCKER IMAGE >${IMAGE}< BUILD ✅"
