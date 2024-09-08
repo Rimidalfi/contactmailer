@@ -10,7 +10,6 @@ pipeline {
         IMAGE = 'contactmailer'
         PORT = '8081'
         PORT_CONTAINER ='8080'
-        //ENVS for Contactmailer
         EMAIL_PORT="465"
         EMAIL="inquiry@jano-creations.com"
         FROM="JANO Geschäftsanfrage" \
