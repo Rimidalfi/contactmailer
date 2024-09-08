@@ -12,11 +12,11 @@ pipeline {
         PORT_CONTAINER ='8080'
 
         EMAIL_PORT='465'
-        EMAIL='inquiry@jano-creations.com'
-        FROM='JANO'
-        TO='w.janowitsch@gmail.com'
-        SUBJECT='new\ Message\ from\ Contact\ form ✔'
-        ORIGIN='https://wladimir.janowitsch.com'
+        EMAIL="inquiry@jano-creations.com"
+        FROM="JANO Geschäftsanfrage" 
+        TO="w.janowitsch@gmail.com" 
+        SUBJECT="new Message from Contact form ✔" 
+        ORIGIN="https://wladimir.janowitsch.com" 
     }
 
     stages {
@@ -54,7 +54,7 @@ if [ -d "${REPO_PATH}/.git" ]; then
     -e EMAIL_PORT=${EMAIL_PORT} \
     -e EMAIL_PW=${EMAIL_PW_VAR} \
     -e EMAIL=${EMAIL} \
-    -e FROM_=${FROM_} \
+    -e FROM=${FROM} \
     -e TO=${TO} \
     -e SUBJECT=${SUBJECT} \
     -e ORIGIN=${ORIGIN} \
