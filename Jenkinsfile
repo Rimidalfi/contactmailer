@@ -12,9 +12,9 @@ pipeline {
         PORT_CONTAINER ='8080'
         EMAIL_PORT='465'
         EMAIL='inquiry@jano-creations.com'
-        FROM='JANO Geschäftsanfrage'
+        FROM='JANO'
         TO='w.janowitsch@gmail.com'
-        SUBJECT='new Message from Contact form ✔'
+        SUBJECT='new'
         ORIGIN='https://wladimir.janowitsch.com'
     }
 
