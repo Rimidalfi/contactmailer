@@ -9,6 +9,14 @@ pipeline {
         CONTAINER = 'jano-mailer'
         IMAGE = 'contactmailer'
         PORT = '8081'
+        PORT_CONTAINER ='8080'
+        //ENVS for Contactmailer
+        EMAIL_PORT="465"
+        EMAIL="inquiry@jano-creations.com"
+        FROM="JANO Geschäftsanfrage" \
+        TO="w.janowitsch@gmail.com" \
+        SUBJECT="new Message from Contact form ✔" \
+        ORIGIN="https://wladimir.janowitsch.com" \
     }
 
     stages {
@@ -28,7 +36,8 @@ fi
 if [ ! -d "${REPO_PATH}/.git" ]; then
     git clone ${REPO_URL} ${REPO_PATH}
     echo "cloning repository from:${REPO_URL}"
-else
+fi
+if [ -d "${REPO_PATH}/.git" ]; then
     cd ${REPO_PATH}
     git pull origin main
     echo "pulling repository from:${REPO_URL}"
@@ -38,16 +47,17 @@ else
     echo "DOCKER SYSTEM PRUNED 🧹"
     docker build -t ${IMAGE}:${BUILD_NUMBER} -t ${IMAGE} .
     echo "DOCKER IMAGE >${IMAGE}< BUILD ✅"
-    docker run -d -p ${PORT}:8080 \
+    docker run -d -p ${PORT}:${PORT_CONTAINER} \
+    --restart unless-stopped \
     --name ${CONTAINER} \
     -e EMAIL_HOST=${EMAIL_HOST_VAR} \
-    -e EMAIL_PORT="465" \
+    -e EMAIL_PORT=${EMAIL_PORT} \
     -e EMAIL_PW=${EMAIL_PW_VAR} \
-    -e EMAIL="inquiry@jano-creations.com" \
-    -e FROM="JANO Geschäftsanfrage" \
-    -e TO="w.janowitsch@gmail.com" \
-    -e SUBJECT="new Message from Contact form ✔" \
-    -e ORIGIN="https://wladimir.janowitsch.com" \
+    -e EMAIL=${EMAIL} \
+    -e FROM=${FROM} \
+    -e TO=${TO} \
+    -e SUBJECT=${SUBJECT} \
+    -e ORIGIN=${ORIGIN} \
     ${IMAGE}
     echo "DOCKER CONTAINER >${CONTAINER}< STARTED ✅"
 fi
