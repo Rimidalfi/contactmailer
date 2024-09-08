@@ -13,7 +13,7 @@ pipeline {
 
         EMAIL_PORT='465'
         EMAIL='inquiry@jano-creations.com'
-        FROM='JANO Geschäftsanfrage'
+        FROM='JANO'
         TO='w.janowitsch@gmail.com'
         SUBJECT='new Message from Contact form ✔'
         ORIGIN='https://wladimir.janowitsch.com'
@@ -54,7 +54,7 @@ if [ -d "${REPO_PATH}/.git" ]; then
     -e EMAIL_PORT=${EMAIL_PORT} \
     -e EMAIL_PW=${EMAIL_PW_VAR} \
     -e EMAIL=${EMAIL} \
-    -e FROM=${FROM} \
+    -e FROM_=${FROM_} \
     -e TO=${TO} \
     -e SUBJECT=${SUBJECT} \
     -e ORIGIN=${ORIGIN} \
