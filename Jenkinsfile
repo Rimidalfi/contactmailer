@@ -54,9 +54,9 @@ if [ -d "${REPO_PATH}/.git" ]; then
     -e EMAIL_PORT=${EMAIL_PORT} \
     -e EMAIL_PW=${EMAIL_PW_VAR} \
     -e EMAIL=${EMAIL} \
-    -e FROM=${FROM} \
+    -e FROM=$"{FROM}" \
     -e TO=${TO} \
-    -e SUBJECT=${SUBJECT} \
+    -e SUBJECT=$"{SUBJECT}" \
     -e ORIGIN=${ORIGIN} \
     ${IMAGE}
     echo "DOCKER CONTAINER >${CONTAINER}< STARTED ✅"
