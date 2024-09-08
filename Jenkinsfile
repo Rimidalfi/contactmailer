@@ -15,7 +15,7 @@ pipeline {
         EMAIL='inquiry@jano-creations.com'
         FROM='JANO'
         TO='w.janowitsch@gmail.com'
-        SUBJECT='new Message from Contact form ✔'
+        SUBJECT='new\ Message\ from\ Contact\ form ✔'
         ORIGIN='https://wladimir.janowitsch.com'
     }
 
