@@ -26,11 +26,11 @@ async function forwardMail(req,res){
 }
 
 
-app.use(cors(corsOptions));
-// app.use(cors());
+// app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 app.post('/',forwardMail)
 app.get('/',(req,res)=>res.send("<h1 style='text-align: center;'>Contact NodeMailer online 🚀</h1>"))
-app.get('/test',(req,res)=>res.send(`<h1 style='text-align: center;'>Host:${EMAIL_HOST}<br>From:${FROM}<br>to${TO}<br>port${EMAIL_PORT}</h1>`))
+// app.get('/test',(req,res)=>res.send(`<h1 style='text-align: center;'>Host:${EMAIL_HOST}<br>From:${FROM}<br>to${TO}<br>port${EMAIL_PORT}</h1>`))
 app.listen(PORT,()=>console.log(`Server runs on Port: ${PORT}`));
