@@ -10,7 +10,7 @@ pipeline {
         IMAGE = 'contactmailer'
         PORT = '8081'
         PORT_CONTAINER ='8080'
-        EMAIL_PORT='465'
+        EMAIL_PORT='587'
         EMAIL='inquiry@jano-creations.com'
         FROM='JANO'
         TO='w.janowitsch@gmail.com'
