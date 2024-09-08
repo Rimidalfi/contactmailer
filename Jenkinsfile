@@ -10,12 +10,13 @@ pipeline {
         IMAGE = 'contactmailer'
         PORT = '8081'
         PORT_CONTAINER ='8080'
+
         EMAIL_PORT="465"
         EMAIL="inquiry@jano-creations.com"
-        FROM="JANO Geschäftsanfrage" \
-        TO="w.janowitsch@gmail.com" \
-        SUBJECT="new Message from Contact form ✔" \
-        ORIGIN="https://wladimir.janowitsch.com" \
+        FROM="JANO Geschäftsanfrage" 
+        TO="w.janowitsch@gmail.com" 
+        SUBJECT="new Message from Contact form ✔" 
+        ORIGIN="https://wladimir.janowitsch.com" 
     }
 
     stages {
