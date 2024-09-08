@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
         pass: EMAIL_PW,
     },
 });
-
+console.log("MAILER LOG 👉",EMAIL_HOST,EMAIL_PORT,EMAIL,EMAIL_PW,FROM,TO,SUBJECT)
 function formatText(email,name,phone,message){
     return(
         `Contact\n\nName:${name} | Email: ${email} | phone:${phone !== ""? phone:"no phone number"}\n\nMessage:\n\n${message}`

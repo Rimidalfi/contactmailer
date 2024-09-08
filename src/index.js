@@ -5,6 +5,7 @@ import InquiryMail from "./mailer.js";
 const {EMAIL_HOST,EMAIL_PORT,EMAIL,EMAIL_PW,FROM,TO,SUBJECT} = process.env
 const PORT = process.env.PORT || 8080;
 const ORIGIN = process.env.ORIGIN 
+
 const corsOptions = {
     origin: ORIGIN
 }
